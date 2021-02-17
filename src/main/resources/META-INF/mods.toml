@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[34,)"
+license="GNU LGPL 3.0"
+issueTrackerURL="https://github.com/Eltrut-Co/More-Respawn-Anchors/issues"
+[[mods]]
+modId="more_respawn_anchors"
+version="1.0.0"
+displayName="More Respawn Anchors"
+logoFile="more_respawn_anchors.png"
+credits="cominixo, EltrutLikes"
+authors="Eltrut & Co."
+description='''
+'''
+
+[[dependencies.more_respawn_anchors]]
+    modId="forge"
+    mandatory=true
+    versionRange="[34,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.more_respawn_anchors]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.3, 1.17)"
+    ordering="NONE"
+    side="BOTH"
