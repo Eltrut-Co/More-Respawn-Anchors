@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "morerespawnanchors:end_respawn_anchor"
+  },
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "result": {
+    "item": "morerespawnanchors:netherite_end_respawn_anchor"
+  }
+}
+

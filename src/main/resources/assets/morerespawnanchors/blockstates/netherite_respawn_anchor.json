@@ -1,0 +1,43 @@
+{
+  "variants": {
+    "charges=0": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_0"
+    },
+    "charges=1": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_1"
+    },
+    "charges=2": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_2"
+    },
+    "charges=3": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_3"
+    },
+    "charges=4": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_4"
+    },
+    "charges=5": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_5"
+    },
+    "charges=6": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_6"
+    },
+    "charges=7": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_7"
+    },
+    "charges=8": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_8"
+    },
+    "charges=9": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_9"
+    },
+    "charges=10": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_10"
+    },
+    "charges=11": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_11"
+    },
+    "charges=12": {
+      "model": "morerespawnanchors:block/netherite_respawn_anchor_12"
+    }
+  }
+}
