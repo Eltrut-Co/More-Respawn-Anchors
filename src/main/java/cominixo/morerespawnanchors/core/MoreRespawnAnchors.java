@@ -1,4 +1,4 @@
-package eltrut.morerespawnanchors.core;
+package cominixo.morerespawnanchors.core;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,12 +13,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod("more_respawn_anchors")
-@Mod.EventBusSubscriber(modid = "more_respawn_anchors", bus = Bus.MOD)
+@Mod("morerespawnanchors")
+@Mod.EventBusSubscriber(modid = "morerespawnanchors", bus = Bus.MOD)
 public class MoreRespawnAnchors
 {
     private static final Logger LOGGER = LogManager.getLogger();
-    public static final String MOD_ID = "more_respawn_anchors";
+    public static final String MOD_ID = "morerespawnanchors";
     public static MoreRespawnAnchors instance;
 
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

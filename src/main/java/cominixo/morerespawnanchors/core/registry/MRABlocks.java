@@ -1,6 +1,6 @@
-package eltrut.morerespawnanchors.core.registry;
+package cominixo.morerespawnanchors.core.registry;
 
-import eltrut.morerespawnanchors.core.MoreRespawnAnchors;
+import cominixo.morerespawnanchors.core.MoreRespawnAnchors;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
