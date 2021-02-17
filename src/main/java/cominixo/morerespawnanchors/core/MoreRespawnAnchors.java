@@ -3,6 +3,8 @@ package cominixo.morerespawnanchors.core;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import cominixo.morerespawnanchors.core.registry.MRABlocks;
+import cominixo.morerespawnanchors.core.registry.MRAItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,6 +28,8 @@ public class MoreRespawnAnchors
     public MoreRespawnAnchors() {
         modEventBus.addListener(this::doCommonStuff);
         modEventBus.addListener(this::doClientStuff);
+        MRAItems.ITEMS.register(modEventBus);
+        MRABlocks.BLOCKS.register(modEventBus);
         instance = this;
         
         MinecraftForge.EVENT_BUS.register(this);
