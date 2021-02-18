@@ -17,6 +17,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
@@ -31,18 +32,18 @@ import net.minecraft.world.ExplosionContext;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-public class BaseRespawnAnchorBlock extends Block {
-
-	protected final int maxCharges;
-
+public class BaseRespawnAnchorBlock extends Block implements IRespawnAnchorBlock {
+	
+	protected int maxCharges;
+	
 	public BaseRespawnAnchorBlock(Properties properties, int maxCharges) {
 		super(properties);
-		this.maxCharges = maxCharges;
-		this.setDefaultState(this.getDefaultState().with(this.getCharges(), 0));
+		this.maxCharges = 4;
+		this.setDefaultState(this.getDefaultState().with(BlockStateProperties.CHARGES, 0));
 	}
 
 	public IntegerProperty getCharges() {
-		return IntegerProperty.create("charges", 0, this.maxCharges);
+		return BlockStateProperties.CHARGES;
 	}
 
 	public int getMaxCharges() {
