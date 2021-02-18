@@ -4,7 +4,7 @@
 	"compatibilityLevel": "JAVA_8",
 	"refmap": "morerespawnanchors.refmap.json",
 	"mixins": [
-		"RespawnAnchorBlockMixin"
+		"PlayerEntityMixin"
 	],
 	"minVersion": "0.8"
 }
