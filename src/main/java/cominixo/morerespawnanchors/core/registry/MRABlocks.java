@@ -1,5 +1,6 @@
 package cominixo.morerespawnanchors.core.registry;
 
+import cominixo.morerespawnanchors.common.blocks.EndRespawnAnchorBlock;
 import cominixo.morerespawnanchors.core.MoreRespawnAnchors;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -15,7 +16,7 @@ public class MRABlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MoreRespawnAnchors.MOD_ID);
 	
 	public static final RegistryObject<Block> NETHERITE_RESPAWN_ANCHOR = BLOCKS.register("netherite_respawn_anchor", () -> new Block(Block.Properties.from(Blocks.DIRT)));
-	public static final RegistryObject<Block> END_RESPAWN_ANCHOR = BLOCKS.register("end_respawn_anchor", () -> new Block(Block.Properties.from(Blocks.DIRT)));
+	public static final RegistryObject<Block> END_RESPAWN_ANCHOR = BLOCKS.register("end_respawn_anchor", () -> new EndRespawnAnchorBlock(Block.Properties.from(Blocks.RESPAWN_ANCHOR)));
 	public static final RegistryObject<Block> NETHERITE_END_RESPAWN_ANCHOR = BLOCKS.register("netherite_end_respawn_anchor", () -> new Block(Block.Properties.from(Blocks.DIRT)));
 	
 }

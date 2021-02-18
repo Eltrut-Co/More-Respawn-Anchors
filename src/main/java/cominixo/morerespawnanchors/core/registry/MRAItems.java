@@ -15,8 +15,8 @@ public class MRAItems {
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MoreRespawnAnchors.MOD_ID);
 	
-	public static final RegistryObject<Item> NETHERITE_RESPAWN_ANCHOR = ITEMS.register("netherite_respawn_anchor", () -> new BlockItem(MRABlocks.NETHERITE_RESPAWN_ANCHOR.get(), new Item.Properties().group(ItemGroup.REDSTONE)));
-	public static final RegistryObject<Item> END_RESPAWN_ANCHOR = ITEMS.register("end_respawn_anchor", () -> new BlockItem(MRABlocks.END_RESPAWN_ANCHOR.get(), new Item.Properties().group(ItemGroup.REDSTONE)));
-	public static final RegistryObject<Item> NETHERITE_END_RESPAWN_ANCHOR = ITEMS.register("netherite_end_respawn_anchor", () -> new BlockItem(MRABlocks.NETHERITE_END_RESPAWN_ANCHOR.get(), new Item.Properties().group(ItemGroup.REDSTONE)));
+	public static final RegistryObject<Item> NETHERITE_RESPAWN_ANCHOR = ITEMS.register("netherite_respawn_anchor", () -> new BlockItem(MRABlocks.NETHERITE_RESPAWN_ANCHOR.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final RegistryObject<Item> END_RESPAWN_ANCHOR = ITEMS.register("end_respawn_anchor", () -> new BlockItem(MRABlocks.END_RESPAWN_ANCHOR.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final RegistryObject<Item> NETHERITE_END_RESPAWN_ANCHOR = ITEMS.register("netherite_end_respawn_anchor", () -> new BlockItem(MRABlocks.NETHERITE_END_RESPAWN_ANCHOR.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
 	
 }

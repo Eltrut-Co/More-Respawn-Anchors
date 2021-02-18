@@ -14,7 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
-public class EndRespawnAnchorBlock extends RespawnAnchorBlock {
+public class EndRespawnAnchorBlock extends RespawnAnchorBlock implements IEndRespawnAnchorBlock {
 
 	public EndRespawnAnchorBlock(Properties properties) {
 		super(properties);
