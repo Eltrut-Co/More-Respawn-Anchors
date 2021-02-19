@@ -3,6 +3,7 @@ package cominixo.morerespawnanchors.core;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import cominixo.morerespawnanchors.core.other.MRACompat;
 import cominixo.morerespawnanchors.core.registry.MRABlocks;
 import cominixo.morerespawnanchors.core.registry.MRAItems;
 import net.minecraftforge.common.MinecraftForge;
@@ -40,8 +41,8 @@ public class MoreRespawnAnchors
     public static void loadCompleteEvent(FMLLoadCompleteEvent event) {
     }
 
-    private void doCommonStuff(final FMLCommonSetupEvent event)
-    {
+    private void doCommonStuff(final FMLCommonSetupEvent event) {
+    	MRACompat.registerDispenserBehaviors();
     }
     
     private void doClientStuff(final FMLClientSetupEvent event) {
