@@ -17,7 +17,6 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
@@ -27,26 +26,30 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.ExplosionContext;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-public class BaseRespawnAnchorBlock extends Block implements IRespawnAnchorBlock {
+public class NetheriteRespawnAnchorBlock extends Block implements IRespawnAnchorBlock {
+
+	public static final IntegerProperty CHARGES = IntegerProperty.create("charges", 0, 12);
 	
-	public BaseRespawnAnchorBlock(Properties properties) {
+	public NetheriteRespawnAnchorBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.getDefaultState().with(BlockStateProperties.CHARGES, 0));
 	}
 
+	@Override
 	public IntegerProperty getCharges() {
-		return BlockStateProperties.CHARGES;
+		return CHARGES;
 	}
 
+	@Override
 	public int getMaxCharges() {
-		return 4;
+		return 12;
 	}
-
+	
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult hit) {
 		ItemStack itemstack = player.getHeldItem(handIn);
@@ -90,13 +93,14 @@ public class BaseRespawnAnchorBlock extends Block implements IRespawnAnchorBlock
 	}
 
 	public boolean notFullyCharged(BlockState state) {
-		return state.get(this.getCharges()) < 4;
+		return state.get(this.getCharges()) < 12;
 	}
 
+	@Override
 	public boolean doesRespawnAnchorWork(World world) {
 		return RespawnAnchorBlock.doesRespawnAnchorWork(world);
 	}
-
+	
 	public void chargeAnchor(World world, BlockPos pos, BlockState state) {
 		world.setBlockState(pos, state.with(this.getCharges(), Integer.valueOf(state.get(this.getCharges()) + 1)), 3);
 		world.playSound((PlayerEntity) null, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D,
@@ -110,7 +114,11 @@ public class BaseRespawnAnchorBlock extends Block implements IRespawnAnchorBlock
 
 	@Override
 	public int getComparatorInputOverride(BlockState state, World worldIn, BlockPos pos) {
-		return RespawnAnchorBlock.getChargeScale(state, 15);
+		return getChargeScale(state, 15);
+	}
+	
+	public static int getChargeScale(BlockState state, int scale) {
+		return MathHelper.floor((float)(state.get(CHARGES) - 0) / 12.0F * (float)scale);
 	}
 
 	@Override

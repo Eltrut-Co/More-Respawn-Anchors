@@ -4,12 +4,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.world.World;
 
-public class EndRespawnAnchorBlock extends BaseRespawnAnchorBlock {
+public class NetheriteEndRespawnAnchorBlock extends NetheriteRespawnAnchorBlock {
 
-	public EndRespawnAnchorBlock(Properties properties) {
+	public NetheriteEndRespawnAnchorBlock(Properties properties) {
 		super(properties);
 	}
-
+	
 	@Override
 	public boolean isValidFuel(ItemStack itemStack) {
 		return itemStack.getItem() == Items.ENDER_PEARL;
