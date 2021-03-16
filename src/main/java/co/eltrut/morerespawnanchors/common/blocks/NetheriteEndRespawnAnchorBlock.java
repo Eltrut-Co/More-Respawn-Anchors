@@ -1,7 +1,12 @@
 package co.eltrut.morerespawnanchors.common.blocks;
 
+import co.eltrut.morerespawnanchors.common.tileentities.EndRespawnAnchorTileEntity;
+import co.eltrut.morerespawnanchors.core.registry.MRATileEntities;
+import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 public class NetheriteEndRespawnAnchorBlock extends NetheriteRespawnAnchorBlock {
@@ -18,6 +23,18 @@ public class NetheriteEndRespawnAnchorBlock extends NetheriteRespawnAnchorBlock 
 	@Override
 	public boolean doesRespawnAnchorWork(World world) {
 		return world.getDimensionKey().equals(World.THE_END);
+	}
+	
+	@Override
+	public boolean hasTileEntity(BlockState state) {
+		return true;
+	}
+	
+	@Override
+	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+		EndRespawnAnchorTileEntity entity = MRATileEntities.END_RESPAWN_ANCHOR.get().create();
+		entity.setCharges(this.getCharges());
+		return entity;
 	}
 
 }

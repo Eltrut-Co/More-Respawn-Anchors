@@ -29,7 +29,7 @@ public class MRABlocks {
 	public static class Properties {
 		public static final Block.Properties RESPAWN_ANCHOR = AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLACK).setRequiresTool().hardnessAndResistance(50.0F, 1200.0F).setLightLevel((state) -> {
 		      return NetheriteRespawnAnchorBlock.getChargeScale(state, 15);
-		   });
+		});
 	}
 	
 }

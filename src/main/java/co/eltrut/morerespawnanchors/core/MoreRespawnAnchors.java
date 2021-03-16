@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import co.eltrut.differentiate.core.registrator.Registrator;
 import co.eltrut.morerespawnanchors.core.other.MRACompat;
+import co.eltrut.morerespawnanchors.core.registry.MRATileEntities;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -31,6 +32,8 @@ public class MoreRespawnAnchors
         modEventBus.addListener(this::doClientStuff);
         instance = this;
         
+        MRATileEntities.HELPER.register(modEventBus);
+        
         MinecraftForge.EVENT_BUS.register(this);
         
     }
@@ -44,5 +47,6 @@ public class MoreRespawnAnchors
     }
     
     private void doClientStuff(final FMLClientSetupEvent event) {
+    	MRACompat.registerEntityRenderers();
     }
 }
