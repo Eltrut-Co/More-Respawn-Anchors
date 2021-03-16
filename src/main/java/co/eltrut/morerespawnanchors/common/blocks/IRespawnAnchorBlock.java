@@ -1,4 +1,4 @@
-package cominixo.morerespawnanchors.common.blocks;
+package co.eltrut.morerespawnanchors.common.blocks;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.state.IntegerProperty;

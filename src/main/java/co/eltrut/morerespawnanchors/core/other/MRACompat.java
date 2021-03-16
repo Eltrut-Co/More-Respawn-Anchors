@@ -1,7 +1,7 @@
-package cominixo.morerespawnanchors.core.other;
+package co.eltrut.morerespawnanchors.core.other;
 
-import cominixo.morerespawnanchors.common.blocks.IRespawnAnchorBlock;
-import cominixo.morerespawnanchors.core.registry.MRABlocks;
+import co.eltrut.morerespawnanchors.common.blocks.IRespawnAnchorBlock;
+import co.eltrut.morerespawnanchors.core.registry.MRABlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.IBlockSource;

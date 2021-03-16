@@ -8,7 +8,7 @@ version="1.0.0"
 displayName="More Respawn Anchors"
 logoFile="morerespawnanchors.png"
 credits="cominixo, EltrutLikes"
-authors="cominixo"
+authors="Eltrut & Co."
 description='''
 '''
 
@@ -24,4 +24,11 @@ description='''
     mandatory=true
     versionRange="[1.16.3, 1.17)"
     ordering="NONE"
+    side="BOTH"
+	
+[[dependencies.morerespawnanchors]]
+    modId="differentiate"
+    mandatory=true
+    versionRange="[0.3.2,)"
+    ordering="AFTER"
     side="BOTH"

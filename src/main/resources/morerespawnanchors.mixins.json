@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "cominixo.morerespawnanchors.core.mixin",
+	"package": "co.eltrut.morerespawnanchors.core.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"refmap": "morerespawnanchors.refmap.json",
 	"mixins": [

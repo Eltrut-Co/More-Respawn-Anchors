@@ -1,11 +1,10 @@
-package cominixo.morerespawnanchors.core;
+package co.eltrut.morerespawnanchors.core;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import cominixo.morerespawnanchors.core.other.MRACompat;
-import cominixo.morerespawnanchors.core.registry.MRABlocks;
-import cominixo.morerespawnanchors.core.registry.MRAItems;
+import co.eltrut.differentiate.core.registrator.Registrator;
+import co.eltrut.morerespawnanchors.core.other.MRACompat;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,6 +21,7 @@ public class MoreRespawnAnchors
 {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "morerespawnanchors";
+    public static final Registrator REGISTRATOR = new Registrator(MOD_ID);
     public static MoreRespawnAnchors instance;
 
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -29,8 +29,6 @@ public class MoreRespawnAnchors
     public MoreRespawnAnchors() {
         modEventBus.addListener(this::doCommonStuff);
         modEventBus.addListener(this::doClientStuff);
-        MRAItems.ITEMS.register(modEventBus);
-        MRABlocks.BLOCKS.register(modEventBus);
         instance = this;
         
         MinecraftForge.EVENT_BUS.register(this);

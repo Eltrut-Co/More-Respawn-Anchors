@@ -1,4 +1,4 @@
-package cominixo.morerespawnanchors.common.blocks;
+package co.eltrut.morerespawnanchors.common.blocks;
 
 import java.util.Optional;
 import java.util.Random;

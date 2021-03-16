@@ -1,4 +1,4 @@
-package cominixo.morerespawnanchors.core.mixin;
+package co.eltrut.morerespawnanchors.core.mixin;
 
 import java.util.Optional;
 
@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import cominixo.morerespawnanchors.common.blocks.IRespawnAnchorBlock;
+import co.eltrut.morerespawnanchors.common.blocks.IRespawnAnchorBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RespawnAnchorBlock;
 import net.minecraft.entity.EntityType;
