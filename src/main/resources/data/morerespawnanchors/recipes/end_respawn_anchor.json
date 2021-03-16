@@ -21,6 +21,12 @@
   },
   "result": {
     "item": "morerespawnanchors:end_respawn_anchor"
-  }
+  },
+  "conditions": [
+	{
+	  "type": "differentiate:condition",
+	  "condition": "end_respawn_anchor"
+	}
+  ]
 }
 

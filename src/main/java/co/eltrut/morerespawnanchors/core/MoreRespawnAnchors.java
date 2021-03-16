@@ -9,8 +9,10 @@ import co.eltrut.morerespawnanchors.core.registry.MRATileEntities;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
@@ -28,6 +30,8 @@ public class MoreRespawnAnchors
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
     public MoreRespawnAnchors() {
+    	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, MRAConfig.COMMON_SPEC);
+    	
         modEventBus.addListener(this::doCommonStuff);
         modEventBus.addListener(this::doClientStuff);
         instance = this;

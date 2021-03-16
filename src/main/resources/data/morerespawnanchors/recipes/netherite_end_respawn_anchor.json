@@ -8,6 +8,12 @@
   },
   "result": {
     "item": "morerespawnanchors:netherite_end_respawn_anchor"
-  }
+  },
+  "conditions": [
+	{
+	  "type": "differentiate:condition",
+	  "condition": "netherite_end_respawn_anchor"
+	}
+  ]
 }
 
