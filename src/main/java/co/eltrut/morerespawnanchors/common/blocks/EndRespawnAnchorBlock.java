@@ -1,15 +1,17 @@
 package co.eltrut.morerespawnanchors.common.blocks;
 
+import co.eltrut.differentiate.common.interf.IRenderTypeBlock;
 import co.eltrut.morerespawnanchors.common.tileentities.EndRespawnAnchorTileEntity;
 import co.eltrut.morerespawnanchors.core.registry.MRATileEntities;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-public class EndRespawnAnchorBlock extends BaseRespawnAnchorBlock {
+public class EndRespawnAnchorBlock extends BaseRespawnAnchorBlock implements IRenderTypeBlock {
 
 	public EndRespawnAnchorBlock(Properties properties) {
 		super(properties);
@@ -35,6 +37,11 @@ public class EndRespawnAnchorBlock extends BaseRespawnAnchorBlock {
 		EndRespawnAnchorTileEntity entity = MRATileEntities.END_RESPAWN_ANCHOR.get().create();
 		entity.setCharges(this.getCharges());
 		return entity;
+	}
+
+	@Override
+	public RenderType getRenderType() {
+		return RenderType.getCutout();
 	}
 
 }
