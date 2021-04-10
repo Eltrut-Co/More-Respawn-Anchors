@@ -1,5 +1,6 @@
 package co.eltrut.morerespawnanchors.core.other;
 
+import co.eltrut.differentiate.core.util.BlockUtil;
 import co.eltrut.morerespawnanchors.client.renderer.EndRespawnAnchorTileEntityRenderer;
 import co.eltrut.morerespawnanchors.common.blocks.IRespawnAnchorBlock;
 import co.eltrut.morerespawnanchors.core.registry.MRABlocks;
@@ -23,7 +24,6 @@ public class MRACompat {
 	}
 	
 	public static void registerDispenserBehaviors() {
-
 		IDispenseItemBehavior newBehavior = new OptionalDispenseBehavior() {
 			@Override
 			public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
@@ -47,15 +47,7 @@ public class MRACompat {
 				}
 			}
 		};
-		IDispenseItemBehavior behavior = DispenserBlock.DISPENSE_BEHAVIOR_REGISTRY.get(Items.GLOWSTONE);
-
-		DispenserBlock.registerDispenseBehavior(Items.GLOWSTONE, (source, stack) -> {
-			Direction dir = source.getBlockState().get(DispenserBlock.FACING);
-			BlockPos pos = source.getBlockPos().offset(dir);
-			BlockState block = source.getWorld().getBlockState(pos);
-
-			return block.isIn(MRABlocks.NETHERITE_RESPAWN_ANCHOR.get()) ? newBehavior.dispense(source, stack) : behavior.dispense(source, stack);
-		});
+		BlockUtil.registerDispenserBehavior(Items.GLOWSTONE, MRABlocks.NETHERITE_RESPAWN_ANCHOR.get(), newBehavior);
 		
 		DispenserBlock.registerDispenseBehavior(Items.ENDER_PEARL, new OptionalDispenseBehavior() {
 			@Override
