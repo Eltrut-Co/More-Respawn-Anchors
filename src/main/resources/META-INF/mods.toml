@@ -29,6 +29,6 @@ description='''
 [[dependencies.morerespawnanchors]]
     modId="differentiate"
     mandatory=true
-    versionRange="[0.3.2,)"
+    versionRange="[0.4.1,)"
     ordering="AFTER"
     side="BOTH"

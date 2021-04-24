@@ -1,8 +1,5 @@
 package co.eltrut.morerespawnanchors.core;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import co.eltrut.differentiate.core.registrator.Registrator;
 import co.eltrut.morerespawnanchors.core.other.MRACompat;
 import co.eltrut.morerespawnanchors.core.registry.MRATileEntities;
@@ -20,9 +17,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("morerespawnanchors")
 @Mod.EventBusSubscriber(modid = "morerespawnanchors", bus = Bus.MOD)
-public class MoreRespawnAnchors
-{
-    private static final Logger LOGGER = LogManager.getLogger();
+public class MoreRespawnAnchors {
     public static final String MOD_ID = "morerespawnanchors";
     public static final Registrator REGISTRATOR = new Registrator(MOD_ID);
     public static MoreRespawnAnchors instance;
