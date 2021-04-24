@@ -24,7 +24,7 @@ public class EndRespawnAnchorBlock extends BaseRespawnAnchorBlock implements IRe
 	
 	@Override
 	public boolean doesRespawnAnchorWork(World world) {
-		return world.getDimensionKey().equals(World.THE_END);
+		return world.dimension().equals(World.END);
 	}
 	
 	@Override
@@ -41,7 +41,7 @@ public class EndRespawnAnchorBlock extends BaseRespawnAnchorBlock implements IRe
 
 	@Override
 	public RenderType getRenderType() {
-		return RenderType.getCutout();
+		return RenderType.cutout();
 	}
 
 }

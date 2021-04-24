@@ -26,49 +26,49 @@ public class MRACompat {
 	public static void registerDispenserBehaviors() {
 		IDispenseItemBehavior newBehavior = new OptionalDispenseBehavior() {
 			@Override
-			public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
-				Direction direction = source.getBlockState().get(DispenserBlock.FACING);
-				BlockPos blockpos = source.getBlockPos().offset(direction);
-				World world = source.getWorld();
+			public ItemStack execute(IBlockSource source, ItemStack stack) {
+				Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
+				BlockPos blockpos = source.getPos().relative(direction);
+				World world = source.getLevel();
 				BlockState blockstate = world.getBlockState(blockpos);
-				this.setSuccessful(true);
-				if (blockstate.isIn(MRABlocks.NETHERITE_RESPAWN_ANCHOR.get())) {
+				this.setSuccess(true);
+				if (blockstate.is(MRABlocks.NETHERITE_RESPAWN_ANCHOR.get())) {
 					IRespawnAnchorBlock block = (IRespawnAnchorBlock)blockstate.getBlock();
-					if (blockstate.get(block.getCharges()) != block.getMaxCharges()) {
+					if (blockstate.getValue(block.getCharges()) != block.getMaxCharges()) {
 						block.chargeAnchor(world, blockpos, blockstate);
 						stack.shrink(1);
 					} else {
-						this.setSuccessful(false);
+						this.setSuccess(false);
 					}
 
 					return stack;
 				} else {
-					return super.dispenseStack(source, stack);
+					return super.execute(source, stack);
 				}
 			}
 		};
 		BlockUtil.registerDispenserBehavior(Items.GLOWSTONE, MRABlocks.NETHERITE_RESPAWN_ANCHOR.get(), newBehavior);
 		
-		DispenserBlock.registerDispenseBehavior(Items.ENDER_PEARL, new OptionalDispenseBehavior() {
+		DispenserBlock.registerBehavior(Items.ENDER_PEARL, new OptionalDispenseBehavior() {
 			@Override
-			public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
-				Direction direction = source.getBlockState().get(DispenserBlock.FACING);
-				BlockPos blockpos = source.getBlockPos().offset(direction);
-				World world = source.getWorld();
+			public ItemStack execute(IBlockSource source, ItemStack stack) {
+				Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
+				BlockPos blockpos = source.getPos().relative(direction);
+				World world = source.getLevel();
 				BlockState blockstate = world.getBlockState(blockpos);
-				this.setSuccessful(true);
-				if (blockstate.isIn(MRABlocks.END_RESPAWN_ANCHOR.get()) || blockstate.isIn(MRABlocks.NETHERITE_END_RESPAWN_ANCHOR.get())) {
+				this.setSuccess(true);
+				if (blockstate.is(MRABlocks.END_RESPAWN_ANCHOR.get()) || blockstate.is(MRABlocks.NETHERITE_END_RESPAWN_ANCHOR.get())) {
 					IRespawnAnchorBlock block = (IRespawnAnchorBlock)blockstate.getBlock();
-					if (blockstate.get(block.getCharges()) != block.getMaxCharges()) {
+					if (blockstate.getValue(block.getCharges()) != block.getMaxCharges()) {
 						block.chargeAnchor(world, blockpos, blockstate);
 						stack.shrink(1);
 					} else {
-						this.setSuccessful(false);
+						this.setSuccess(false);
 					}
 
 					return stack;
 				} else {
-					return super.dispenseStack(source, stack);
+					return super.execute(source, stack);
 				}
 			}
 		});

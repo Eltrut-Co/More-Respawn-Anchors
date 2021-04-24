@@ -19,15 +19,15 @@ import net.minecraft.world.server.ServerWorld;
 @Mixin(PlayerEntity.class)
 public final class PlayerEntityMixin {
 	
-	@Inject(at = @At("HEAD"), method = "func_242374_a(Lnet/minecraft/world/server/ServerWorld;Lnet/minecraft/util/math/BlockPos;FZZ)Ljava/util/Optional;", cancellable = true)
-	private static void func_242374_a(ServerWorld world, BlockPos blockPos, float f, boolean b1, boolean b2, CallbackInfoReturnable<Optional<Vector3d>> cir) {
+	@Inject(at = @At("HEAD"), method = "findRespawnPositionAndUseSpawnBlock(Lnet/minecraft/world/server/ServerWorld;Lnet/minecraft/util/math/BlockPos;FZZ)Ljava/util/Optional;", cancellable = true)
+	private static void findRespawnPositionAndUseSpawnBlock(ServerWorld world, BlockPos blockPos, float f, boolean b1, boolean b2, CallbackInfoReturnable<Optional<Vector3d>> cir) {
 		BlockState blockState = world.getBlockState(blockPos);
 		if (blockState.getBlock() instanceof IRespawnAnchorBlock) {
 			IRespawnAnchorBlock block = (IRespawnAnchorBlock)blockState.getBlock();
-			if (blockState.get(block.getCharges()) > 0 && block.doesRespawnAnchorWork(world)) {
-				Optional<Vector3d> respawnPosition = RespawnAnchorBlock.findRespawnPoint(EntityType.PLAYER, world, blockPos);
+			if (blockState.getValue(block.getCharges()) > 0 && block.doesRespawnAnchorWork(world)) {
+				Optional<Vector3d> respawnPosition = RespawnAnchorBlock.findStandUpPosition(EntityType.PLAYER, world, blockPos);
                 if (!b2 && respawnPosition.isPresent()) {
-                    world.setBlockState(blockPos, blockState.with(block.getCharges(), blockState.get(block.getCharges()) - 1), 3);
+                    world.setBlock(blockPos, blockState.setValue(block.getCharges(), blockState.getValue(block.getCharges()) - 1), 3);
                 }
 
                 cir.setReturnValue(respawnPosition);

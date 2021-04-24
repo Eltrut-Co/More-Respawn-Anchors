@@ -20,7 +20,7 @@ public class EndRespawnAnchorTileEntityRenderer extends EndPortalTileEntityRende
 
 	private static final Random RANDOM = new Random(31100L);
 	private static final List<RenderType> RENDER_TYPES = IntStream.range(0, 16).mapToObj((p_228882_0_) -> {
-		return RenderType.getEndPortal(p_228882_0_ + 1);
+		return RenderType.endPortal(p_228882_0_ + 1);
 	}).collect(ImmutableList.toImmutableList());
 
 	public EndRespawnAnchorTileEntityRenderer(TileEntityRendererDispatcher rendererDispatcherIn) {
@@ -30,12 +30,12 @@ public class EndRespawnAnchorTileEntityRenderer extends EndPortalTileEntityRende
 	@Override
 	public void render(EndRespawnAnchorTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn,
 			IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
-		if (tileEntityIn.getBlockState().get(tileEntityIn.getCharges()) > 0) {
+		if (tileEntityIn.getBlockState().getValue(tileEntityIn.getCharges()) > 0) {
 			RANDOM.setSeed(31100L);
-			double d0 = tileEntityIn.getPos().distanceSq(this.renderDispatcher.renderInfo.getProjectedView(), true);
+			double d0 = tileEntityIn.getBlockPos().distSqr(this.renderer.camera.getPosition(), true);
 			int i = this.getPasses(d0);
 			float f = this.getOffset();
-			Matrix4f matrix4f = matrixStackIn.getLast().getMatrix();
+			Matrix4f matrix4f = matrixStackIn.last().pose();
 			this.renderCube(tileEntityIn, f, 0.15F, matrix4f, bufferIn.getBuffer(RENDER_TYPES.get(0)));
 
 			for (int j = 1; j < i; ++j) {
@@ -56,10 +56,10 @@ public class EndRespawnAnchorTileEntityRenderer extends EndPortalTileEntityRende
 
 	private void renderFace(EndRespawnAnchorTileEntity tileEntityIn, Matrix4f matrix4f, IVertexBuilder vertexBuilder, float h, float i, float n, float o, float p) {
 		if (tileEntityIn.shouldRenderFace(Direction.UP)) {
-			vertexBuilder.pos(matrix4f, 0.1860F, h, 0.8140F).color(n, o, p, 1.0F).endVertex();
-			vertexBuilder.pos(matrix4f, 0.8140F, h, 0.8140F).color(n, o, p, 1.0F).endVertex();
-            vertexBuilder.pos(matrix4f, 0.8140F, i, 0.1860F).color(n, o, p, 1.0F).endVertex();
-            vertexBuilder.pos(matrix4f, 0.1860F, i, 0.1860F).color(n, o, p, 1.0F).endVertex();
+			vertexBuilder.vertex(matrix4f, 0.1860F, h, 0.8140F).color(n, o, p, 1.0F).endVertex();
+			vertexBuilder.vertex(matrix4f, 0.8140F, h, 0.8140F).color(n, o, p, 1.0F).endVertex();
+            vertexBuilder.vertex(matrix4f, 0.8140F, i, 0.1860F).color(n, o, p, 1.0F).endVertex();
+            vertexBuilder.vertex(matrix4f, 0.1860F, i, 0.1860F).color(n, o, p, 1.0F).endVertex();
 		}
 	}
 
