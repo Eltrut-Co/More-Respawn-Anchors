@@ -39,14 +39,17 @@ public class BaseRespawnAnchorBlock extends Block implements IRespawnAnchorBlock
 		this.registerDefaultState(this.defaultBlockState().setValue(BlockStateProperties.RESPAWN_ANCHOR_CHARGES, 0));
 	}
 
+	@Override
 	public IntegerProperty getCharges() {
 		return BlockStateProperties.RESPAWN_ANCHOR_CHARGES;
 	}
 
+	@Override
 	public int getMaxCharges() {
 		return 4;
 	}
 
+	@Override
 	public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult hit) {
 		ItemStack itemstack = player.getItemInHand(handIn);
@@ -93,10 +96,12 @@ public class BaseRespawnAnchorBlock extends Block implements IRespawnAnchorBlock
 		return state.getValue(this.getCharges()) < 4;
 	}
 
+	@Override
 	public boolean doesRespawnAnchorWork(World world) {
 		return RespawnAnchorBlock.canSetSpawn(world);
 	}
-
+	
+	@Override
 	public void chargeAnchor(World world, BlockPos pos, BlockState state) {
 		world.setBlock(pos, state.setValue(this.getCharges(), Integer.valueOf(state.getValue(this.getCharges()) + 1)), 3);
 		world.playSound((PlayerEntity) null, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D,
@@ -126,6 +131,7 @@ public class BaseRespawnAnchorBlock extends Block implements IRespawnAnchorBlock
 		});
 		final boolean flag1 = flag || world.getFluidState(pos2.above()).is(FluidTags.WATER);
 		ExplosionContext explosioncontext = new ExplosionContext() {
+			@Override
 			public Optional<Float> getBlockExplosionResistance(Explosion explosion, IBlockReader reader, BlockPos pos,
 					BlockState state, FluidState fluid) {
 				return pos.equals(pos2) && flag1 ? Optional.of(Blocks.WATER.getExplosionResistance())
@@ -137,6 +143,7 @@ public class BaseRespawnAnchorBlock extends Block implements IRespawnAnchorBlock
 				Explosion.Mode.DESTROY);
 	}
 
+	@Override
 	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if (stateIn.getValue(this.getCharges()) != 0) {
 			if (rand.nextInt(100) == 0) {
@@ -153,6 +160,7 @@ public class BaseRespawnAnchorBlock extends Block implements IRespawnAnchorBlock
 		}
 	}
 
+	@Override
 	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(this.getCharges());
 	}
