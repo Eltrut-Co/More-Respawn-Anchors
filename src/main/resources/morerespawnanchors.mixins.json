@@ -4,7 +4,9 @@
 	"compatibilityLevel": "JAVA_8",
 	"refmap": "morerespawnanchors.refmap.json",
 	"mixins": [
-		"PlayerEntityMixin"
+		"ClientPlayNetHandlerMixin",
+		"PlayerEntityMixin",
+		"ServerPlayerEntityMixin"
 	],
 	"minVersion": "0.8"
 }

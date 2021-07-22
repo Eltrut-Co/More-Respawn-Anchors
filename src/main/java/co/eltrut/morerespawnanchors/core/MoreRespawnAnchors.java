@@ -21,6 +21,8 @@ public class MoreRespawnAnchors {
     public static final String MOD_ID = "morerespawnanchors";
     public static final Registrator REGISTRATOR = new Registrator(MOD_ID);
     public static MoreRespawnAnchors instance;
+    
+    public static boolean respawnAfterCredits = false;
 
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
