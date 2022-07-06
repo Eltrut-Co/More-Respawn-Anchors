@@ -9,27 +9,33 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 
 import co.eltrut.morerespawnanchors.common.tileentities.EndRespawnAnchorTileEntity;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Matrix4f;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.blockentity.TheEndPortalRenderer;
 import net.minecraft.client.renderer.tileentity.EndPortalTileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.vector.Matrix4f;
 
-public class EndRespawnAnchorTileEntityRenderer extends EndPortalTileEntityRenderer<EndRespawnAnchorTileEntity> {
+public class EndRespawnAnchorTileEntityRenderer extends TheEndPortalRenderer<EndRespawnAnchorTileEntity> {
 
 	private static final Random RANDOM = new Random(31100L);
 	private static final List<RenderType> RENDER_TYPES = IntStream.range(0, 16).mapToObj((p_228882_0_) -> {
-		return RenderType.endPortal(p_228882_0_ + 1);
+		return RenderType.endPortal();
 	}).collect(ImmutableList.toImmutableList());
 
-	public EndRespawnAnchorTileEntityRenderer(TileEntityRendererDispatcher rendererDispatcherIn) {
+	public EndRespawnAnchorTileEntityRenderer(BlockEntityRendererProvider.Context rendererDispatcherIn) {
 		super(rendererDispatcherIn);
 	}
 
 	@Override
-	public void render(EndRespawnAnchorTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn,
-			IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
+	public void render(EndRespawnAnchorTileEntity tileEntityIn, float partialTicks, PoseStack matrixStackIn,
+					   MultiBufferSource bufferIn, int combinedLightIn, int combinedOverlayIn) {
 		if (tileEntityIn.getBlockState().getValue(tileEntityIn.getCharges()) > 0) {
 			RANDOM.setSeed(31100L);
 			double d0 = tileEntityIn.getBlockPos().distSqr(this.renderer.camera.getPosition(), true);

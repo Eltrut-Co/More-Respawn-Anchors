@@ -1,19 +1,17 @@
 package co.eltrut.morerespawnanchors.core.registry;
 
-import java.util.Arrays;
-import java.util.HashSet;
-
 import co.eltrut.morerespawnanchors.common.tileentities.EndRespawnAnchorTileEntity;
 import co.eltrut.morerespawnanchors.core.MoreRespawnAnchors;
-import net.minecraft.block.Block;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+import java.util.Arrays;
+import java.util.HashSet;
 
 @Mod.EventBusSubscriber(modid = MoreRespawnAnchors.MOD_ID, bus = Bus.MOD)
 public class MRABlockEntities {

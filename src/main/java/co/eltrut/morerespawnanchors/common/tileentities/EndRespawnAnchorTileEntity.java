@@ -1,10 +1,10 @@
 package co.eltrut.morerespawnanchors.common.tileentities;
 
 import co.eltrut.morerespawnanchors.core.registry.MRABlockEntities;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.tileentity.EndPortalTileEntity;
+import net.minecraft.world.level.block.entity.TheEndPortalBlockEntity;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
-public class EndRespawnAnchorTileEntity extends EndPortalTileEntity {
+public class EndRespawnAnchorTileEntity extends TheEndPortalBlockEntity {
 
 	private IntegerProperty charges;
 	

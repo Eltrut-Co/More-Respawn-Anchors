@@ -10,6 +10,12 @@ import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class EndRespawnAnchorBlock extends BaseRespawnAnchorBlock implements IRenderTypeBlock {
 
@@ -23,8 +29,8 @@ public class EndRespawnAnchorBlock extends BaseRespawnAnchorBlock implements IRe
 	}
 	
 	@Override
-	public boolean doesRespawnAnchorWork(World world) {
-		return world.dimension().equals(World.END);
+	public boolean doesRespawnAnchorWork(Level world) {
+		return world.dimension().equals(Level.END);
 	}
 	
 	@Override
@@ -33,7 +39,7 @@ public class EndRespawnAnchorBlock extends BaseRespawnAnchorBlock implements IRe
 	}
 	
 	@Override
-	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+	public BlockEntity createBlockEntity(BlockState state, BlockGetter world) {
 		EndRespawnAnchorTileEntity entity = MRABlockEntities.END_RESPAWN_ANCHOR.get().create();
 		entity.setCharges(this.getCharges());
 		return entity;
