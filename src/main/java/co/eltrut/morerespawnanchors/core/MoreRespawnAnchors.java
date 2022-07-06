@@ -2,7 +2,7 @@ package co.eltrut.morerespawnanchors.core;
 
 import co.eltrut.differentiate.core.registrator.Registrator;
 import co.eltrut.morerespawnanchors.core.other.MRACompat;
-import co.eltrut.morerespawnanchors.core.registry.MRATileEntities;
+import co.eltrut.morerespawnanchors.core.registry.MRABlockEntities;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -33,7 +33,7 @@ public class MoreRespawnAnchors {
         modEventBus.addListener(this::doClientStuff);
         instance = this;
         
-        MRATileEntities.HELPER.register(modEventBus);
+        MRABlockEntities.HELPER.register(modEventBus);
         
         MinecraftForge.EVENT_BUS.register(this);
         

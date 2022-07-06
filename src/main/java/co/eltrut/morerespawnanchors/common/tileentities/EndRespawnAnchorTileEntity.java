@@ -1,6 +1,6 @@
 package co.eltrut.morerespawnanchors.common.tileentities;
 
-import co.eltrut.morerespawnanchors.core.registry.MRATileEntities;
+import co.eltrut.morerespawnanchors.core.registry.MRABlockEntities;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.tileentity.EndPortalTileEntity;
 
@@ -9,7 +9,7 @@ public class EndRespawnAnchorTileEntity extends EndPortalTileEntity {
 	private IntegerProperty charges;
 	
 	public EndRespawnAnchorTileEntity() {
-		super(MRATileEntities.END_RESPAWN_ANCHOR.get());
+		super(MRABlockEntities.END_RESPAWN_ANCHOR.get());
 	}
 	
 	public void setCharges(IntegerProperty charges) {

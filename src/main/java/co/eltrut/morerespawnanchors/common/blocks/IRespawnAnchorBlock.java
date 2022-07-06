@@ -1,15 +1,15 @@
 package co.eltrut.morerespawnanchors.common.blocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 public interface IRespawnAnchorBlock {
 	
 	public IntegerProperty getCharges();
 	public int getMaxCharges();
-	public boolean doesRespawnAnchorWork(World world);
-	public void chargeAnchor(World world, BlockPos pos, BlockState state);
+	public boolean doesRespawnAnchorWork(Level world);
+	public void chargeAnchor(Level world, BlockPos pos, BlockState state);
 	
 }

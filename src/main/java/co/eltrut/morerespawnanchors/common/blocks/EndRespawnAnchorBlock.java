@@ -2,7 +2,7 @@ package co.eltrut.morerespawnanchors.common.blocks;
 
 import co.eltrut.differentiate.common.interf.IRenderTypeBlock;
 import co.eltrut.morerespawnanchors.common.tileentities.EndRespawnAnchorTileEntity;
-import co.eltrut.morerespawnanchors.core.registry.MRATileEntities;
+import co.eltrut.morerespawnanchors.core.registry.MRABlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.item.ItemStack;
@@ -34,7 +34,7 @@ public class EndRespawnAnchorBlock extends BaseRespawnAnchorBlock implements IRe
 	
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-		EndRespawnAnchorTileEntity entity = MRATileEntities.END_RESPAWN_ANCHOR.get().create();
+		EndRespawnAnchorTileEntity entity = MRABlockEntities.END_RESPAWN_ANCHOR.get().create();
 		entity.setCharges(this.getCharges());
 		return entity;
 	}

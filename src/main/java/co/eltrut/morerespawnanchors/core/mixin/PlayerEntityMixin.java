@@ -2,6 +2,14 @@ package co.eltrut.morerespawnanchors.core.mixin;
 
 import java.util.Optional;
 
+import com.mojang.math.Vector3d;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.RespawnAnchorBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -18,14 +26,14 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-@Mixin(PlayerEntity.class)
+@Mixin(Player.class)
 public final class PlayerEntityMixin {
 	
-	@Inject(at = @At("RETURN"), method = "findRespawnPositionAndUseSpawnBlock(Lnet/minecraft/world/server/ServerWorld;Lnet/minecraft/util/math/BlockPos;FZZ)Ljava/util/Optional;", cancellable = true)
-	private static void findRespawnPositionAndUseSpawnBlock(ServerWorld world, BlockPos blockPos, float f, boolean b1, boolean b2, CallbackInfoReturnable<Optional<Vector3d>> cir) {
+	@Inject(at = @At("RETURN"), method = "findRespawnPositionAndUseSpawnBlock(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;FZZ)Ljava/util/Optional;", cancellable = true)
+	private static void findRespawnPositionAndUseSpawnBlock(ServerLevel world, BlockPos blockPos, float f, boolean b1, boolean b2, CallbackInfoReturnable<Optional<Vector3d>> cir) {
 		BlockState blockState = world.getBlockState(blockPos);
 		if (MoreRespawnAnchors.respawnAfterCredits) {
-			BlockPos pos = world.getServer().getLevel(World.OVERWORLD).getSharedSpawnPos();
+			BlockPos pos = world.getServer().getLevel(Level.OVERWORLD).getSharedSpawnPos();
 			MoreRespawnAnchors.respawnAfterCredits = false;
 			cir.setReturnValue(Optional.of(new Vector3d(pos.getX(), pos.getY(), pos.getZ())));
 		}
