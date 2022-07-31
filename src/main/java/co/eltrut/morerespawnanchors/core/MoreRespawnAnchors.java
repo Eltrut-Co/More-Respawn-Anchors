@@ -32,9 +32,8 @@ public class MoreRespawnAnchors {
         modEventBus.addListener(this::doCommonStuff);
         modEventBus.addListener(this::doClientStuff);
         instance = this;
-        
-        MRABlockEntities.HELPER.register(modEventBus);
-        
+
+        REGISTRATOR.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         
     }

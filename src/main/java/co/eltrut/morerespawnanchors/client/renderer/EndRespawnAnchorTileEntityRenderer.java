@@ -12,12 +12,10 @@ import net.minecraft.client.renderer.blockentity.TheEndPortalRenderer;
 import net.minecraft.core.Direction;
 
 import java.util.List;
-import java.util.Random;
 import java.util.stream.IntStream;
 
 public class EndRespawnAnchorTileEntityRenderer extends TheEndPortalRenderer<EndRespawnAnchorTileEntity> {
 
-	private static final Random RANDOM = new Random(31100L);
 	private static final List<RenderType> RENDER_TYPES = IntStream.range(0, 16).mapToObj((p_228882_0_) -> {
 		return RenderType.endPortal();
 	}).collect(ImmutableList.toImmutableList());
