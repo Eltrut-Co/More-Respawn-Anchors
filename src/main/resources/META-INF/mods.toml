@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[34,)"
+loaderVersion="[40,)"
 license="GNU LGPL 3.0"
 issueTrackerURL="https://github.com/Eltrut-Co/More-Respawn-Anchors/issues"
 [[mods]]
 modId="morerespawnanchors"
-version="1.3.0"
+version="2.0.0"
 displayName="More Respawn Anchors"
 logoFile="morerespawnanchors.png"
 credits="cominixo, EltrutLikes"
@@ -15,20 +15,20 @@ description='''
 [[dependencies.morerespawnanchors]]
     modId="forge"
     mandatory=true
-    versionRange="[34,)"
+    versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.morerespawnanchors]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.3, 1.17)"
+    versionRange="[1.18.2,)"
     ordering="NONE"
     side="BOTH"
 	
 [[dependencies.morerespawnanchors]]
     modId="differentiate"
     mandatory=true
-    versionRange="[0.4.1,)"
+    versionRange="[1.0.3,)"
     ordering="AFTER"
     side="BOTH"

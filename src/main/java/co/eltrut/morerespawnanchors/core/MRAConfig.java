@@ -23,9 +23,9 @@ public class MRAConfig {
 			
 			builder.pop();
 			
-			BooleanRecipeCondition.TABLE.put("end_respawn_anchor", enableEndRespawnAnchor);
-			BooleanRecipeCondition.TABLE.put("netherite_respawn_anchor", enableNetheriteRespawnAnchor);
-			BooleanRecipeCondition.TABLE.put("netherite_end_respawn_anchor", enableNetheriteEndRespawnAnchor);
+			BooleanRecipeCondition.MAP.put("end_respawn_anchor", enableEndRespawnAnchor);
+			BooleanRecipeCondition.MAP.put("netherite_respawn_anchor", enableNetheriteRespawnAnchor);
+			BooleanRecipeCondition.MAP.put("netherite_end_respawn_anchor", enableNetheriteEndRespawnAnchor);
 		}
 		
 	}
